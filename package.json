@@ -1,0 +1,38 @@
+{
+  "name": "kiki",
+  "version": "0.0.1",
+  "description": "A courier delivery service",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "bin": {
+    "kiki": "dist/index.js"
+  },
+  "scripts": {
+    "build": "babel index.ts --out-file dist/index.js",
+    "start": "node dist/index.js",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.24.1",
+    "@babel/core": "7.24.3",
+    "@babel/preset-env": "7.24.3",
+    "@babel/preset-typescript": "7.24.1",
+    "@types/jest": "29.5.12",
+    "@types/node": "20.11.30",
+    "jest": "29.7.0",
+    "typescript": "5.4.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vemarav/kiki.git"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "Aravind Vemula",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vemarav/kiki/issues"
+  },
+  "homepage": "https://github.com/vemarav/kiki#readme"
+}
