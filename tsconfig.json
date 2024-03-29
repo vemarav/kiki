@@ -3,6 +3,10 @@
     "target": "ESNext",
     "module": "CommonJS",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@domain/*": ["./lib/domain/*"]
+    }
   }
 }
