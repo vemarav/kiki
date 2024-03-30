@@ -8,23 +8,20 @@ import CalcDeliveryCostUseCase from "@domain/useCases/CalcDeliverCostUseCase";
 import Datum from "@infra/data";
 import OfferValidator from "@domain/validators/Offer.validator";
 
-export function getPackages(pkgs: any[]) {
-  const packageInputs = [];
+export function getPackages(numberOfPackages: number, pkgs: string) {
+  const packageInputs = pkgs.split("\n").filter((e) => e);
   const packages: Package[] = [];
-  let currentPackage = -1;
-  for (const cin of pkgs) {
-    if (cin.includes("PKG")) {
-      packageInputs.push([cin]);
-      currentPackage++;
-    } else {
-      packageInputs[currentPackage].push(cin);
-    }
-  }
 
-  for (const pkg of packageInputs) {
-    packages.push(
-      Package.build(pkg[0], Number(pkg[1]), Number(pkg[2]), pkg[3])
-    );
+  for (let n = 0; n < numberOfPackages; n++) {
+    try {
+      const pkg = packageInputs[n].split(" ");
+
+      packages.push(
+        Package.build(pkg[0], Number(pkg[1]), Number(pkg[2]), pkg[3])
+      );
+    } catch (e) {
+      throw new Error("Invalid input");
+    }
   }
 
   return packages;
@@ -34,10 +31,10 @@ export function main() {
   const argv = [...process.argv];
   const args = argv.slice(2); // remove node and filename from command-line arguments
 
-  const [baseDeliveryCost, numberOfPackages, ...restArgs] = args;
+  const [baseDeliveryCost, numberOfPackages, pkgs] = args;
   Datum.baseDeliveryCost = Number(baseDeliveryCost);
   Datum.numberOfPackages = Number(numberOfPackages);
-  Datum.packages = getPackages(restArgs);
+  Datum.packages = getPackages(Datum.numberOfPackages, pkgs);
 
   Datum.offers = [
     Offer.build("OFR001", 10, 0, 200, 70, 200),

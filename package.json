@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "webpack --config problem1.config.js",
-    "test": "watchman watch-del '/Users/vemarav/Developer/kiki' ; watchman watch-project '/Users/vemarav/Developer/kiki'; jest"
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/cli": "7.24.1",
