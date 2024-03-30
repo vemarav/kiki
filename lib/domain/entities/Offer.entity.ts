@@ -3,28 +3,28 @@ import BaseEntity from "@domain/entities/Base.entity";
 import RangeUnit from "@domain/enums/RangeUnit.enum";
 
 type Params = {
-  name: string;
+  code: string;
   discountPercentage: number;
   distance: Range;
   weight: Range;
 };
 
 export default class Offer extends BaseEntity<Offer> {
-  name: string;
+  code: string;
   discountPercentage: number;
   distance: Range;
   weight: Range;
 
   constructor(params: Params) {
     super();
-    this.name = params.name;
+    this.code = params.code;
     this.discountPercentage = params.discountPercentage;
     this.distance = params.distance;
     this.weight = params.weight;
   }
 
   static build(
-    name: string,
+    code: string,
     discountPercentage: number,
     minDistance: number,
     maxDistance: number,
@@ -32,7 +32,7 @@ export default class Offer extends BaseEntity<Offer> {
     maxWeight: number
   ) {
     return new Offer({
-      name,
+      code,
       discountPercentage,
       distance: Range.build(minDistance, maxDistance, RangeUnit.Distance),
       weight: Range.build(minWeight, maxWeight, RangeUnit.Weight),

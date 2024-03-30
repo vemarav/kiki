@@ -6,7 +6,9 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@domain/*": ["./lib/domain/*"]
+      "@domain/*": ["./lib/domain/*"],
+      "@presentation/*": ["./lib/presentation/*"],
+      "@infra/*": ["./lib/infra/*"]
     }
   }
 }
