@@ -1,4 +1,4 @@
-# kiki and tombo delivery challenge
+# Kiki and Tombo courier service
 
 For technical specification please [read here](https://github.com/vemarav/kiki/blob/main/TECT_SPEC.md)
 
