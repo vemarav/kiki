@@ -15,7 +15,7 @@ Before we begin how we can leverage this CLI tool, we need to setup everything n
 ## Clone repo
 
 ```sh
-git clone git@github.com:vemarav/kiki.git
+git clone https://github.com/vemarav/kiki.git
 cd kiki
 ```
 
