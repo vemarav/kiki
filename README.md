@@ -1,6 +1,6 @@
 # Kiki and Tombo courier service
 
-For technical specification please [read here](https://github.com/vemarav/kiki/blob/main/TECT_SPEC.md)
+For technical specification please [read here](https://github.com/vemarav/kiki/blob/main/TECH_SPEC.md)
 
 > Note: Currently errors are not handled and expects the valid input from the user. It doesn't give descriptive errors to fix the input
 
