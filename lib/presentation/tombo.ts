@@ -73,7 +73,13 @@ export function main() {
     )[0];
 
     const deliveredPackages = [];
-    for (const pkg of group) {
+    const packages =
+      group.length > 1
+        ? group.sort((a, b) =>
+            a.weight === b.weight ? a.distance - b.distance : 0
+          )
+        : group;
+    for (const pkg of packages) {
       const time = toPrecision(pkg.distance / vehicle.speed, 2);
       deliveredPackages.push(time);
       const pkgDeiveryTime = Number((vehicle.deliveryTime + time).toFixed(2));
