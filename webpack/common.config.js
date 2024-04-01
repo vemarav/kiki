@@ -1,19 +1,16 @@
 // webpack.config.js
 const path = require("path");
+const ShebangPlugin = require("webpack-shebang-plugin");
 
 module.exports = {
   mode: "production",
-  entry: "./problem1.ts", // Entry point of your application
-  output: {
-    path: path.resolve(__dirname, "dist"), // Output directory
-    filename: "problem1.js", // Output filename
-  },
   resolve: {
     extensions: [".ts", ".js"], // Resolve TypeScript and JavaScript files
     alias: {
-      "@domain": path.resolve(__dirname, "lib/domain"),
-      "@presentation": path.resolve(__dirname, "lib/presentation"),
-      "@infra": path.resolve(__dirname, "lib/infra"),
+      "@domain": path.resolve(__dirname, "../lib/domain"),
+      "@presentation": path.resolve(__dirname, "../lib/presentation"),
+      "@infra": path.resolve(__dirname, "../lib/infra"),
+      "@shared": path.resolve(__dirname, "../lib/shared"),
     },
   },
   module: {
@@ -25,4 +22,5 @@ module.exports = {
       },
     ],
   },
+  plugins: [new ShebangPlugin()],
 };

@@ -1,40 +1,21 @@
 #!/usr/bin/env node
 
 import Offer from "@domain/entities/Offer.entity";
-import Package from "@domain/entities/Package.entity";
-import OfferRepository from "@infra/repositories/Offer.repository";
 import ApplyDiscountUseCase from "@domain/useCases/ApplyDiscountUseCase";
 import CalcDeliveryCostUseCase from "@domain/useCases/CalcDeliverCostUseCase";
-import Datum from "@infra/data";
 import OfferValidator from "@domain/validators/Offer.validator";
-
-export function getPackages(numberOfPackages: number, pkgs: string) {
-  const packageInputs = pkgs.split("\n").filter((e) => e);
-  const packages: Package[] = [];
-
-  for (let n = 0; n < numberOfPackages; n++) {
-    try {
-      const pkg = packageInputs[n].split(" ");
-
-      packages.push(
-        Package.build(pkg[0], Number(pkg[1]), Number(pkg[2]), pkg[3])
-      );
-    } catch (e) {
-      throw new Error("Invalid input");
-    }
-  }
-
-  return packages;
-}
+import Datum from "@infra/data";
+import OfferRepository from "@infra/repositories/Offer.repository";
+import { getPackages } from "@shared/processInput";
 
 export function main() {
   const argv = [...process.argv];
-  const args = argv.slice(2); // remove node and filename from command-line arguments
+  const args = argv.slice(2)[0].split("\n"); // remove node and filename from command-line arguments
 
-  const [baseDeliveryCost, numberOfPackages, pkgs] = args;
+  const [baseDeliveryCost, numberOfPackages] = args[0].split(" ");
   Datum.baseDeliveryCost = Number(baseDeliveryCost);
   Datum.numberOfPackages = Number(numberOfPackages);
-  Datum.packages = getPackages(Datum.numberOfPackages, pkgs);
+  Datum.packages = getPackages(args);
 
   Datum.offers = [
     Offer.build("OFR001", 10, 0, 200, 70, 200),
@@ -62,7 +43,7 @@ export function main() {
 
     const discount = totalCost - costAfterDiscount;
 
-    results.push(`${pkg.name}, ${discount}, ${costAfterDiscount}`);
+    results.push(`${pkg.name} ${discount} ${costAfterDiscount}`);
   }
 
   return results;

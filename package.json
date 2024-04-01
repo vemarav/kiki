@@ -4,10 +4,11 @@
   "description": "A courier delivery service",
   "type": "commonjs",
   "bin": {
-    "kiki1": "dist/problem1.js"
+    "kiki": "dist/kiki.js",
+    "tombo": "dist/tombo.js"
   },
   "scripts": {
-    "build": "webpack --config problem1.config.js",
+    "build": "webpack --config webpack/kiki.config.js; webpack --config webpack/tombo.config.js;",
     "test": "jest"
   },
   "devDependencies": {
@@ -22,7 +23,8 @@
     "ts-loader": "^9.5.1",
     "typescript": "^5.4.3",
     "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-shebang-plugin": "^1.1.8"
   },
   "repository": {
     "type": "git",

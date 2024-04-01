@@ -5,7 +5,7 @@ import OfferRepository from "@infra/repositories/Offer.repository";
 describe("Offer repository", () => {
   let offerRepository: OfferRepository;
 
-  beforeEach(() => {
+  beforeAll(() => {
     Datum.offers = [
       Offer.build("OFR001", 10, 0, 200, 70, 200),
       Offer.build("OFR002", 7, 50, 150, 100, 150),

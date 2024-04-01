@@ -9,7 +9,7 @@ describe("Datum", () => {
     Datum.packages = [Package.build("PKG1", 5, 5, "OFR001")];
     Datum.offers = [Offer.build("OFR001", 10, 0, 200, 70, 200)];
     expect(Datum.toString()).toBe(
-      'baseDeliveryCost: 100, numberOfPackages: 3, packages: [{"name":"PKG1","weight":5,"distance":5,"offer":"OFR001"}], offers: [{"code":"OFR001","discountPercentage":10,"distance":{"min":0,"max":200,"unit":"km"},"weight":{"min":70,"max":200,"unit":"kg"}}]'
+      `baseDeliveryCost: 100, numberOfPackages: 3, packages: [{\"name\":\"PKG1\",\"weight\":5,\"distance\":5,\"offer\":\"OFR001\"}], offers: [{\"code\":\"OFR001\",\"discountPercentage\":10,\"distance\":{\"min\":0,\"max\":200,\"unit\":\"km\"},\"weight\":{\"min\":70,\"max\":200,\"unit\":\"kg\"}}], vehicles: []`
     );
   });
 });

@@ -8,7 +8,8 @@
     "paths": {
       "@domain/*": ["./lib/domain/*"],
       "@presentation/*": ["./lib/presentation/*"],
-      "@infra/*": ["./lib/infra/*"]
+      "@infra/*": ["./lib/infra/*"],
+      "@shared/*": ["./lib/shared/*"]
     }
   }
 }

@@ -1,4 +1,3 @@
-import ApplyDiscountUseCase from "./ApplyDiscountUseCase";
 import IUseCase from "./IUseCase";
 
 type ExecureParams = {

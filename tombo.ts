@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { main } from "./lib/presentation/problem1";
+import { main } from "./lib/presentation/tombo";
 
 const results = main();
 

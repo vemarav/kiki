@@ -12,6 +12,7 @@ module.exports = {
                 "@domain": "domain",
                 "@presentation": "presentation",
                 "@infra": "infra",
+                "@shared": "shared",
               },
             },
           ],
